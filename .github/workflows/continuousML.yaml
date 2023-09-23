@@ -14,21 +14,12 @@ jobs:
       - uses: actions/setup-python@v4
         with:
             python-version: '3.11.2'
-            
+
       - uses: iterative/setup-cml@v1
       - name: Train model
         run: |
           # Your ML workflow goes here
-          python3 -m venv venv
-          source venv/bin/activate
-          sudo pip3 install -r requirements.txt
-          python3 train.py
-          #write everything into a markdown and then return it into github
-          echo "## Model Metrics" > report.md
-          cat metrics.txt >> report.md
-      
-          echo "![](./feature_importance.png)" >> report.md 
-          echo "![](./residuals.png)" >> report.md
-          
-          
-          cml comment create report.md
+          pip install -r requirements.txt
+          python train.py
+          echo "Model Metrics"
+          cat metrics.txt
