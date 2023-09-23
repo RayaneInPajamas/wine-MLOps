@@ -19,7 +19,7 @@ jobs:
       - name: Train model
         run: |
           # Your ML workflow goes here
-          pip install -r requirements.txt
+          sudo -H pip install -r requirements.txt
           python train.py
           #write everything into a markdown and then return it into github
           echo "## Model Metrics" > report.md
