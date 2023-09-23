@@ -19,12 +19,16 @@ jobs:
       - name: Train model
         run: |
           # Your ML workflow goes here
+          python3 -m venv venv
+          source venv/bin/activate
           sudo -H pip3 install -r requirements.txt
           python3 train.py
           #write everything into a markdown and then return it into github
           echo "## Model Metrics" > report.md
           cat metrics.txt >> report.md
-
+      
+          echo "![](./feature_importance.png)" >> report.md 
+          echo "![](./residuals.png)" >> report.md
           
           
           cml comment create report.md
