@@ -21,7 +21,7 @@ jobs:
           # Your ML workflow goes here
           python3 -m venv venv
           source venv/bin/activate
-          sudo -H pip3 install -r requirements.txt
+          sudo pip3 install -r requirements.txt
           python3 train.py
           #write everything into a markdown and then return it into github
           echo "## Model Metrics" > report.md
